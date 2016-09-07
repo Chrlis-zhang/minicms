@@ -22,7 +22,8 @@ def column_detail(request,column_slug):
 
 
 def article_detail(request,article_slug):
-    articl = Article.objects.get(slug=article_slug)
+    #articl = Article.objects.get(slug=article_slug)
+    articl = Article.objects.filter(slug=article_slug)[0]
     return render(request,'article.html',{'article':articl})
 
 
