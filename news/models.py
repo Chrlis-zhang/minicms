@@ -30,7 +30,7 @@ class Article(models.Model):
     column = models.ManyToManyField(Column,verbose_name='归属栏目')
 
     title = models.CharField('标题',max_length=256)
-    slug = models.CharField('网址',max_length=256,db_index=True)
+    slug = models.CharField('网址',max_length=256,db_index=True,unique=True)
 
     author = models.ForeignKey('auth.User',blank=True,null=True,verbose_name='作者')
     #content = models.TextField('内容',default='',blank='')
