@@ -8,7 +8,13 @@ from news.models import Column,Article
 
 def index(request):
     columns = Column.objects.all()
-    return render(request,'index.html',{'columns': columns})
+    home_display_columns = Column.objects.filter(home_display=True)
+    nav_display_columns = Column.objects.filter(nav_display=True)
+    #return render(request,'index.html',{'columns': columns})
+    return  render(request,'index.html',{
+        'home_display_columns':home_display_columns,
+        'nav_display_columns':nav_display_columns,
+    })
 
 
     #return HttpResponse(u'欢迎')

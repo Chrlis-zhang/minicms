@@ -10,6 +10,11 @@
 {% endblock %}
 </head>
 <body>
+<ul>
+    {% for column in nav_display_columns %}
+        <li><a href="{{ column.get_absolute_url }}">{{ column.name }}</a> </li>
+    {% endfor %}
+</ul>
 {% block content %}
     <h1>新闻</h1>
 {% endblock %}
